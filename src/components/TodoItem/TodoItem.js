@@ -4,6 +4,9 @@ import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 export default class TodoItem extends Component {
+    shouldComponentUpdate(nextProps, nextStates) {
+        return this.props.done !== nextProps.done;
+    }
     render() {
         const { done, children, onToggle, onRemove } = this.props;
         /**
